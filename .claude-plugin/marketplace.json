@@ -1,0 +1,12 @@
+{
+  "name": "coursmith",
+  "description": "The Coursmith plugin: create and publish interactive courses from Claude Code.",
+  "owner": { "name": "Coursmith" },
+  "plugins": [
+    {
+      "name": "coursmith",
+      "source": "./plugin",
+      "description": "Create interactive courses (steps, charts, animations, glossary, final quiz) and publish them to the Coursmith catalog."
+    }
+  ]
+}

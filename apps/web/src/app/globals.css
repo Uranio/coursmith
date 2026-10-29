@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(0.99 0.003 270);
+  --surface: oklch(1 0 0);
+  --surface-muted: oklch(0.965 0.006 270);
+  --foreground: oklch(0.2 0.02 270);
+  --muted: oklch(0.5 0.02 270);
+  --border: oklch(0.91 0.01 270);
+  --primary: oklch(0.55 0.2 275);
+  --primary-foreground: oklch(0.99 0 0);
+  --accent: oklch(0.75 0.15 190);
+  --success: oklch(0.62 0.16 155);
+  --warning: oklch(0.75 0.15 75);
+  --danger: oklch(0.6 0.21 25);
+  --radius: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: oklch(0.16 0.015 270);
+    --surface: oklch(0.2 0.018 270);
+    --surface-muted: oklch(0.24 0.02 270);
+    --foreground: oklch(0.95 0.008 270);
+    --muted: oklch(0.7 0.02 270);
+    --border: oklch(0.3 0.02 270);
+    --primary: oklch(0.7 0.16 275);
+    --primary-foreground: oklch(0.16 0.015 270);
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --radius-card: var(--radius);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Lesson text rendered from Markdown. */
+.prose-course {
+  line-height: 1.7;
+}
+.prose-course > * + * {
+  margin-top: 0.9em;
+}
+.prose-course ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.prose-course ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.prose-course li + li {
+  margin-top: 0.3em;
+}
+.prose-course strong {
+  font-weight: 600;
+}
+.prose-course h1,
+.prose-course h2,
+.prose-course h3,
+.prose-course h4 {
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.4em;
+}
+.prose-course h1,
+.prose-course h2 {
+  font-size: 1.3em;
+}
+.prose-course h3,
+.prose-course h4 {
+  font-size: 1.1em;
+}
+.prose-course :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--surface-muted);
+  border-radius: 0.35em;
+  padding: 0.1em 0.35em;
+}
+.prose-course table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+.prose-course th,
+.prose-course td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.4em 0.6em;
+  text-align: left;
+}
+
+/* Shiki dual themes (defaultColor: false). */
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+@media (prefers-color-scheme: dark) {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+  }
+}

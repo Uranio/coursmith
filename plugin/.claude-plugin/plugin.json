@@ -1,0 +1,8 @@
+{
+  "name": "coursmith",
+  "displayName": "Coursmith",
+  "version": "0.1.0",
+  "description": "Create interactive courses (steps, charts, animations, glossary, final quiz) and publish them to the Coursmith catalog.",
+  "author": { "name": "Coursmith" },
+  "keywords": ["courses", "e-learning", "education", "agent-skills"]
+}

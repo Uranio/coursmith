@@ -1,0 +1,813 @@
+{
+  "$schema": "../../references/course.schema.json",
+  "schemaVersion": "1.0",
+  "meta": {
+    "title": "How Electricity Reaches Your Home",
+    "subtitle": "From the power plant to the socket, one step at a time",
+    "description": "Follow the journey of electricity: how it is generated, why it travels at high voltage, how the grid keeps supply and demand balanced, and what happens inside your home's electrical panel. No prior knowledge needed.",
+    "language": "en",
+    "difficulty": "beginner",
+    "category": "engineering",
+    "tags": [
+      "energy",
+      "electricity",
+      "power grid"
+    ],
+    "estimatedMinutes": 30,
+    "learningObjectives": [
+      "Explain how a generator turns motion into electricity",
+      "Describe why transmission lines use high voltage",
+      "Name the main parts of the power grid and what each does",
+      "Read the basic information on an electricity bill"
+    ],
+    "prerequisites": [],
+    "coverImage": "cover",
+    "accentColor": "#2563eb"
+  },
+  "assets": [
+    {
+      "id": "cover",
+      "kind": "svg",
+      "file": "assets/cover.svg",
+      "alt": "Stylized power line crossing hills toward a small house with a lit window",
+      "generatedBy": "hand-written SVG"
+    },
+    {
+      "id": "home-panel",
+      "kind": "svg",
+      "file": "assets/home-panel.svg",
+      "alt": "Diagram of a home electrical panel with meter, main switch, residual current device and circuit breakers",
+      "generatedBy": "hand-written SVG"
+    }
+  ],
+  "sections": [
+    {
+      "id": "generation",
+      "title": "Generating electricity",
+      "summary": "Where electricity comes from and how motion becomes current.",
+      "steps": [
+        {
+          "id": "what-is-electricity",
+          "title": "What is electricity?",
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Electricity is the flow of [[electric charge]]. In a copper wire, tiny particles called [[electron|electrons]] are pushed along the metal, a bit like water pushed through a pipe. They can only keep flowing around a closed loop, called an [[electric circuit|circuit]].\n\nTwo quantities describe that flow:\n\n- [[voltage]] is the *push* that drives the charge;\n- [[current]] is *how much* charge flows each second."
+            },
+            {
+              "type": "callout",
+              "variant": "tip",
+              "title": "The water analogy",
+              "text": "Think of voltage as water pressure and current as the amount of water flowing through the pipe."
+            }
+          ],
+          "check": {
+            "id": "check-voltage",
+            "type": "single",
+            "prompt": "In the water analogy, what does voltage correspond to?",
+            "options": [
+              {
+                "id": "a",
+                "text": "The pressure pushing the water"
+              },
+              {
+                "id": "b",
+                "text": "The amount of water flowing"
+              },
+              {
+                "id": "c",
+                "text": "The length of the pipe"
+              }
+            ],
+            "correct": "a",
+            "explanation": "Voltage is the push; current is the amount that flows."
+          }
+        },
+        {
+          "id": "generator",
+          "title": "How a generator works",
+          "visual": {
+            "type": "animation",
+            "caption": "From steam, water or wind to electric current",
+            "animation": {
+              "preset": "flow",
+              "direction": "LR",
+              "nodes": [
+                {
+                  "id": "source",
+                  "label": "Steam, water or wind"
+                },
+                {
+                  "id": "turbine",
+                  "label": "Turbine spins"
+                },
+                {
+                  "id": "generator",
+                  "label": "Generator"
+                },
+                {
+                  "id": "current",
+                  "label": "Electric current"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "source",
+                  "to": "turbine",
+                  "label": "pushes"
+                },
+                {
+                  "from": "turbine",
+                  "to": "generator",
+                  "label": "rotates"
+                },
+                {
+                  "from": "generator",
+                  "to": "current",
+                  "label": "produces"
+                }
+              ]
+            }
+          },
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Power plants turn other forms of [[energy]] into electricity, and almost all of them work the same way: something spins a [[turbine]], and the turbine turns a [[generator]].\n\nInside the generator, magnets rotate next to coils of wire. A moving magnetic field pushes the electrons in the wire: this is called [[electromagnetic induction]]."
+            }
+          ]
+        },
+        {
+          "id": "energy-mix",
+          "title": "Where our electricity comes from",
+          "visual": {
+            "type": "chart",
+            "title": "Illustrative electricity supply of a European country",
+            "caption": "Example figures for teaching purposes; real shares vary by country and year.",
+            "spec": {
+              "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+              "data": {
+                "values": [
+                  {
+                    "source": "Natural gas",
+                    "share": 40
+                  },
+                  {
+                    "source": "Solar",
+                    "share": 15
+                  },
+                  {
+                    "source": "Hydro",
+                    "share": 16
+                  },
+                  {
+                    "source": "Wind",
+                    "share": 8
+                  },
+                  {
+                    "source": "Imports",
+                    "share": 14
+                  },
+                  {
+                    "source": "Other",
+                    "share": 7
+                  }
+                ]
+              },
+              "mark": {
+                "type": "bar",
+                "cornerRadiusEnd": 4
+              },
+              "encoding": {
+                "y": {
+                  "field": "source",
+                  "type": "nominal",
+                  "sort": "-x",
+                  "title": null
+                },
+                "x": {
+                  "field": "share",
+                  "type": "quantitative",
+                  "title": "Share of electricity supply (%)"
+                }
+              }
+            }
+          },
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Power plants use different [[energy source|energy sources]]. Some are [[renewable energy|renewable]] (sun, wind, water), others burn [[fossil fuel|fossil fuels]] such as natural gas.\n\nThe combination of sources a country uses is called its [[energy mix]]."
+            }
+          ]
+        }
+      ],
+      "glossary": [
+        {
+          "term": "electric charge",
+          "definition": "A property of particles such as electrons; moving charge is what we call electricity."
+        },
+        {
+          "term": "voltage",
+          "definition": "The 'push' that drives electric charge through a circuit, measured in volts (V)."
+        },
+        {
+          "term": "current",
+          "definition": "The amount of electric charge flowing per second, measured in amperes (A)."
+        },
+        {
+          "term": "turbine",
+          "definition": "A wheel with blades that spins when steam, water or wind flows through it."
+        },
+        {
+          "term": "generator",
+          "definition": "A machine that converts rotation into electricity using magnets and coils of wire."
+        },
+        {
+          "term": "electromagnetic induction",
+          "definition": "The creation of a voltage in a wire when the magnetic field around it changes."
+        },
+        {
+          "term": "energy source",
+          "aliases": [
+            "energy sources"
+          ],
+          "definition": "Anything used to produce electricity: sun, wind, water, gas, coal, uranium and so on."
+        },
+        {
+          "term": "renewable energy",
+          "aliases": [
+            "renewable"
+          ],
+          "definition": "Energy from sources that naturally replenish, such as sunlight, wind and flowing water."
+        },
+        {
+          "term": "energy mix",
+          "definition": "The share of each energy source in the electricity a country produces or consumes."
+        },
+        {
+          "term": "electron",
+          "aliases": [
+            "electrons"
+          ],
+          "definition": "A tiny particle with a negative electric charge; moving electrons carry electricity through metal wires."
+        },
+        {
+          "term": "electric circuit",
+          "aliases": [
+            "circuit"
+          ],
+          "definition": "A closed loop of conductors through which current can flow from a source, through devices, and back."
+        },
+        {
+          "term": "energy",
+          "definition": "The ability to do work, such as moving, heating or lighting something. Electrical energy is measured in kilowatt-hours on bills."
+        },
+        {
+          "term": "fossil fuel",
+          "aliases": [
+            "fossil fuels"
+          ],
+          "definition": "Coal, oil or natural gas: fuels formed over millions of years from ancient plants and animals, which release carbon dioxide when burned."
+        }
+      ]
+    },
+    {
+      "id": "grid",
+      "title": "The power grid",
+      "summary": "How the power grid carries electricity hundreds of kilometres and delivers it at the right voltage.",
+      "steps": [
+        {
+          "id": "high-voltage",
+          "title": "Why high voltage?",
+          "visual": {
+            "type": "animation",
+            "animation": {
+              "preset": "counter",
+              "items": [
+                {
+                  "label": "Transmission line",
+                  "from": 0,
+                  "to": 380000,
+                  "unit": "V"
+                },
+                {
+                  "label": "Distribution line",
+                  "from": 0,
+                  "to": 15000,
+                  "unit": "V"
+                },
+                {
+                  "label": "Home socket",
+                  "from": 0,
+                  "to": 230,
+                  "unit": "V"
+                }
+              ]
+            },
+            "caption": "Typical voltages in a European grid (exact values vary by country)."
+          },
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "The [[power grid|grid]] carries electricity from power plants to homes. Its wires heat up when [[current]] flows through them, and that heat is wasted energy. The loss grows with the *square* of the current."
+            },
+            {
+              "type": "math",
+              "tex": "P_{\\text{loss}} = I^2 R",
+              "caption": "Power lost in a wire: current squared times the wire's resistance."
+            },
+            {
+              "type": "markdown",
+              "text": "Here *R* is the wire's [[resistance]]. Electrical [[power]] equals voltage times current (P = V × I), so the grid can deliver the same power with less current by raising the [[voltage]]: [[transmission]] lines run at hundreds of thousands of volts. A [[transformer]] changes the voltage up or down."
+            }
+          ]
+        },
+        {
+          "id": "grid-journey",
+          "title": "The journey through the grid",
+          "visual": {
+            "type": "animation",
+            "animation": {
+              "preset": "process",
+              "steps": [
+                {
+                  "title": "Power plant",
+                  "description": "Generates electricity at about 20 kV."
+                },
+                {
+                  "title": "Step-up substation",
+                  "description": "A transformer raises it to 220–380 kV."
+                },
+                {
+                  "title": "Transmission",
+                  "description": "Long-distance lines carry it across the country."
+                },
+                {
+                  "title": "Step-down substation",
+                  "description": "Voltage is lowered for local distribution."
+                },
+                {
+                  "title": "Distribution",
+                  "description": "Local lines and a final transformer bring 230 V to homes."
+                }
+              ]
+            }
+          },
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "After transmission, [[substation|substations]] lower the voltage and local [[distribution]] networks bring it to neighbourhoods. A last transformer, often in a small cabin on your street, brings it to 230 V."
+            },
+            {
+              "type": "diagram",
+              "syntax": "mermaid",
+              "code": "flowchart LR\n  P[Power plant] --> U[Step-up substation]\n  U --> T[Transmission lines]\n  T --> D[Step-down substation]\n  D --> L[Distribution lines]\n  L --> H[Homes]",
+              "caption": "The same journey as a diagram."
+            }
+          ]
+        },
+        {
+          "id": "balance",
+          "title": "Keeping the grid balanced",
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Electricity is hard to store in large amounts, so production must match consumption second by second. The grid uses [[alternating current]], and the [[grid operator]] watches its [[frequency]], 50 Hz in Europe, to know if supply and demand are balanced."
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Situation",
+                "Frequency",
+                "What the operator does"
+              ],
+              "rows": [
+                [
+                  "Demand higher than supply",
+                  "Drops below 50 Hz",
+                  "Asks plants or batteries to produce more"
+                ],
+                [
+                  "Supply higher than demand",
+                  "Rises above 50 Hz",
+                  "Reduces production or stores energy"
+                ]
+              ],
+              "caption": "Frequency is the grid's balance indicator."
+            }
+          ],
+          "check": {
+            "id": "check-frequency",
+            "type": "true_false",
+            "prompt": "If more electricity is consumed than produced, grid frequency rises.",
+            "correct": false,
+            "explanation": "When demand exceeds supply, the generators slow down slightly and frequency drops."
+          }
+        }
+      ],
+      "glossary": [
+        {
+          "term": "transmission",
+          "definition": "Moving electricity over long distances at very high voltage."
+        },
+        {
+          "term": "transformer",
+          "definition": "A device that raises or lowers voltage without moving parts."
+        },
+        {
+          "term": "substation",
+          "aliases": [
+            "substations"
+          ],
+          "definition": "A facility with transformers and switches that connects parts of the grid at different voltages."
+        },
+        {
+          "term": "distribution",
+          "definition": "The local network that delivers electricity from substations to homes and businesses."
+        },
+        {
+          "term": "grid operator",
+          "definition": "The organisation that runs the grid and keeps supply and demand balanced."
+        },
+        {
+          "term": "frequency",
+          "definition": "How many complete back-and-forth cycles alternating current makes each second, measured in hertz (Hz). At 50 Hz the current reverses direction 100 times per second."
+        },
+        {
+          "term": "power grid",
+          "aliases": [
+            "grid",
+            "the grid"
+          ],
+          "definition": "The network of power plants, power lines, substations and transformers that carries electricity to consumers."
+        },
+        {
+          "term": "power",
+          "aliases": [
+            "electric power"
+          ],
+          "definition": "The rate at which electrical energy is delivered or used, measured in watts (W). It equals voltage times current."
+        },
+        {
+          "term": "resistance",
+          "definition": "How strongly a material opposes the flow of current, measured in ohms (Ω). Higher resistance turns more energy into heat."
+        },
+        {
+          "term": "alternating current",
+          "aliases": [
+            "AC"
+          ],
+          "definition": "Electric current that regularly reverses direction. Grids use it because transformers only work with alternating current."
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "title": "Electricity at home",
+      "summary": "The meter, the panel and the numbers on your bill.",
+      "steps": [
+        {
+          "id": "panel",
+          "title": "Inside the electrical panel",
+          "visual": {
+            "type": "animation",
+            "animation": {
+              "preset": "highlight-svg",
+              "asset": "home-panel",
+              "highlights": [
+                {
+                  "elementId": "meter",
+                  "label": "Meter",
+                  "description": "Measures how much energy you use."
+                },
+                {
+                  "elementId": "main-switch",
+                  "label": "Main switch",
+                  "description": "Cuts power to the whole home."
+                },
+                {
+                  "elementId": "rcd",
+                  "label": "Residual current device",
+                  "description": "Trips if current leaks, for example through a person."
+                },
+                {
+                  "elementId": "breakers",
+                  "label": "Circuit breakers",
+                  "description": "Protect each circuit from overload."
+                }
+              ]
+            }
+          },
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Electricity enters the home through the [[electricity meter]]. From there it reaches the [[electrical panel|panel]], where a [[main switch]], a [[residual current device]] and several [[circuit breaker|circuit breakers]] protect people and wiring."
+            },
+            {
+              "type": "callout",
+              "variant": "warning",
+              "text": "Never open the electrical panel's cover yourself: any work inside it must be done by a qualified electrician."
+            }
+          ]
+        },
+        {
+          "id": "bill",
+          "title": "Reading your bill",
+          "blocks": [
+            {
+              "type": "markdown",
+              "text": "Your bill charges for [[energy consumption]], measured in [[kilowatt-hour|kilowatt-hours]] (kWh), plus fixed charges for using the [[power grid|grid]] and taxes. Energy used equals [[power]] multiplied by time."
+            },
+            {
+              "type": "callout",
+              "variant": "example",
+              "title": "Quick calculation",
+              "text": "A 2 [[kilowatt|kW]] oven used for 1.5 hours consumes 2 × 1.5 = 3 kWh."
+            }
+          ],
+          "check": {
+            "id": "check-kwh",
+            "type": "single",
+            "prompt": "A 1 kW heater runs for 4 hours. How much energy does it use?",
+            "options": [
+              {
+                "id": "a",
+                "text": "0.25 kWh"
+              },
+              {
+                "id": "b",
+                "text": "4 kWh"
+              },
+              {
+                "id": "c",
+                "text": "5 kWh"
+              }
+            ],
+            "correct": "b",
+            "explanation": "Energy = power × time = 1 kW × 4 h = 4 kWh."
+          }
+        }
+      ],
+      "glossary": [
+        {
+          "term": "electricity meter",
+          "definition": "The device that measures the electrical energy a home consumes."
+        },
+        {
+          "term": "residual current device",
+          "aliases": [
+            "RCD"
+          ],
+          "definition": "A safety switch that cuts power when it detects current leaking to earth."
+        },
+        {
+          "term": "circuit breaker",
+          "aliases": [
+            "circuit breakers"
+          ],
+          "definition": "A switch that opens automatically when a circuit carries too much current."
+        },
+        {
+          "term": "energy consumption",
+          "definition": "The total electrical energy used over a period of time."
+        },
+        {
+          "term": "kilowatt-hour",
+          "aliases": [
+            "kilowatt-hours",
+            "kWh"
+          ],
+          "definition": "The energy used by a 1 kW device running for one hour; the unit on electricity bills."
+        },
+        {
+          "term": "electrical panel",
+          "aliases": [
+            "panel"
+          ],
+          "definition": "The box where the home's wiring is split into circuits, each protected by its own breaker."
+        },
+        {
+          "term": "main switch",
+          "definition": "The switch in the electrical panel that turns off the power to the whole home at once."
+        },
+        {
+          "term": "kilowatt",
+          "aliases": [
+            "kW"
+          ],
+          "definition": "A unit of power equal to 1,000 watts."
+        }
+      ]
+    }
+  ],
+  "finalQuiz": {
+    "questions": [
+      {
+        "id": "q1",
+        "sectionRef": "generation",
+        "type": "single",
+        "prompt": "What does a turbine do in a power plant?",
+        "options": [
+          {
+            "id": "a",
+            "text": "It spins and turns the generator"
+          },
+          {
+            "id": "b",
+            "text": "It stores electricity"
+          },
+          {
+            "id": "c",
+            "text": "It lowers the voltage"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Steam, water or wind spins the turbine, which rotates the generator."
+      },
+      {
+        "id": "q2",
+        "sectionRef": "generation",
+        "type": "true_false",
+        "prompt": "Electromagnetic induction creates a voltage when the magnetic field around a wire changes.",
+        "correct": true,
+        "explanation": "This is the principle every generator relies on."
+      },
+      {
+        "id": "q3",
+        "sectionRef": "generation",
+        "type": "multiple",
+        "prompt": "Which of these are renewable energy sources?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Wind"
+          },
+          {
+            "id": "b",
+            "text": "Natural gas"
+          },
+          {
+            "id": "c",
+            "text": "Sunlight"
+          },
+          {
+            "id": "d",
+            "text": "Flowing water"
+          }
+        ],
+        "correct": [
+          "a",
+          "c",
+          "d"
+        ],
+        "explanation": "Wind, sun and water replenish naturally; natural gas is a fossil fuel."
+      },
+      {
+        "id": "q4",
+        "sectionRef": "generation",
+        "type": "single",
+        "prompt": "Current measures…",
+        "options": [
+          {
+            "id": "a",
+            "text": "the push that drives charge"
+          },
+          {
+            "id": "b",
+            "text": "how much charge flows each second"
+          },
+          {
+            "id": "c",
+            "text": "the energy used in an hour"
+          }
+        ],
+        "correct": "b",
+        "explanation": "Current is the flow rate of charge, measured in amperes."
+      },
+      {
+        "id": "q5",
+        "sectionRef": "grid",
+        "type": "single",
+        "prompt": "Why do transmission lines use very high voltage?",
+        "options": [
+          {
+            "id": "a",
+            "text": "To lower the current and reduce losses"
+          },
+          {
+            "id": "b",
+            "text": "To make electricity travel faster"
+          },
+          {
+            "id": "c",
+            "text": "Because generators cannot produce low voltage"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Losses grow with the square of the current, so higher voltage and lower current waste less energy."
+      },
+      {
+        "id": "q6",
+        "sectionRef": "grid",
+        "type": "ordering",
+        "prompt": "Put the journey of electricity in order.",
+        "items": [
+          {
+            "id": "plant",
+            "text": "Power plant"
+          },
+          {
+            "id": "step-up",
+            "text": "Step-up substation"
+          },
+          {
+            "id": "transmission",
+            "text": "Transmission lines"
+          },
+          {
+            "id": "step-down",
+            "text": "Step-down substation"
+          },
+          {
+            "id": "home",
+            "text": "Home"
+          }
+        ],
+        "explanation": "Voltage is raised for transmission, then lowered again before reaching homes."
+      },
+      {
+        "id": "q7",
+        "sectionRef": "grid",
+        "type": "true_false",
+        "prompt": "In Europe the grid frequency is 50 Hz.",
+        "correct": true,
+        "explanation": "European grids run at 50 Hz; North America uses 60 Hz."
+      },
+      {
+        "id": "q8",
+        "sectionRef": "grid",
+        "type": "single",
+        "prompt": "What device changes the voltage between parts of the grid?",
+        "options": [
+          {
+            "id": "a",
+            "text": "A transformer"
+          },
+          {
+            "id": "b",
+            "text": "A circuit breaker"
+          },
+          {
+            "id": "c",
+            "text": "A meter"
+          }
+        ],
+        "correct": "a",
+        "explanation": "Transformers raise or lower voltage."
+      },
+      {
+        "id": "q9",
+        "sectionRef": "home",
+        "type": "single",
+        "prompt": "What does a residual current device protect against?",
+        "options": [
+          {
+            "id": "a",
+            "text": "Current leaking to earth, for example through a person"
+          },
+          {
+            "id": "b",
+            "text": "High electricity prices"
+          },
+          {
+            "id": "c",
+            "text": "Low grid frequency"
+          }
+        ],
+        "correct": "a",
+        "explanation": "It trips when it detects a leak, which can save lives."
+      },
+      {
+        "id": "q10",
+        "sectionRef": "home",
+        "type": "single",
+        "prompt": "A 500 W lamp stays on for 10 hours. How much energy does it use?",
+        "options": [
+          {
+            "id": "a",
+            "text": "5 kWh"
+          },
+          {
+            "id": "b",
+            "text": "50 kWh"
+          },
+          {
+            "id": "c",
+            "text": "0.5 kWh"
+          }
+        ],
+        "correct": "a",
+        "explanation": "0.5 kW × 10 h = 5 kWh."
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t">
+  <title id="t">Power line crossing hills toward a house</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="980" cy="140" r="60" fill="#fde68a"/>
+  <path d="M0 470 Q300 380 600 450 T1200 430 V630 H0Z" fill="#1e40af"/>
+  <path d="M0 520 Q350 450 700 520 T1200 500 V630 H0Z" fill="#172554"/>
+  <g stroke="#e0e7ff" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M140 470 L180 250 L220 470 M150 320 H210 M160 280 H200"/>
+    <path d="M520 470 L560 250 L600 470 M530 320 H590 M540 280 H580"/>
+    <path d="M180 260 Q370 330 560 260" stroke-width="3"/>
+    <path d="M560 260 Q760 330 880 400" stroke-width="3"/>
+  </g>
+  <g transform="translate(860 400)">
+    <path d="M0 60 L60 10 L120 60 V140 H0Z" fill="#f8fafc"/>
+    <rect x="45" y="80" width="30" height="30" fill="#facc15"/>
+  </g>
+</svg>

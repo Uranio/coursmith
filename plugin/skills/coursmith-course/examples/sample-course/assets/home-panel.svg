@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" role="img" aria-labelledby="t">
+  <title id="t">Home electrical panel</title>
+  <rect x="10" y="10" width="380" height="500" rx="16" fill="#f1f5f9" stroke="#334155" stroke-width="4"/>
+  <g id="meter">
+    <rect x="130" y="40" width="140" height="90" rx="8" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+    <rect x="150" y="60" width="100" height="30" rx="4" fill="#0f172a"/>
+    <text x="200" y="82" font-family="monospace" font-size="18" fill="#4ade80" text-anchor="middle">01234</text>
+    <text x="200" y="118" font-family="sans-serif" font-size="14" fill="#334155" text-anchor="middle">kWh</text>
+  </g>
+  <path d="M200 130 V170" stroke="#334155" stroke-width="4"/>
+  <g id="main-switch">
+    <rect x="160" y="170" width="80" height="70" rx="6" fill="#fecaca" stroke="#b91c1c" stroke-width="3"/>
+    <rect x="190" y="185" width="20" height="40" rx="3" fill="#b91c1c"/>
+  </g>
+  <path d="M200 240 V280" stroke="#334155" stroke-width="4"/>
+  <g id="rcd">
+    <rect x="140" y="280" width="120" height="70" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="3"/>
+    <circle cx="230" cy="315" r="10" fill="#1d4ed8"/>
+    <rect x="160" y="295" width="20" height="40" rx="3" fill="#1d4ed8"/>
+  </g>
+  <path d="M200 350 V380 M80 380 H320 M80 380 V400 M160 380 V400 M240 380 V400 M320 380 V400" stroke="#334155" stroke-width="4" fill="none"/>
+  <g id="breakers">
+    <rect x="55" y="400" width="50" height="80" rx="5" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+    <rect x="135" y="400" width="50" height="80" rx="5" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+    <rect x="215" y="400" width="50" height="80" rx="5" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+    <rect x="295" y="400" width="50" height="80" rx="5" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+  </g>
+</svg>

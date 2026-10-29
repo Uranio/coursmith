@@ -1,0 +1,41 @@
+{
+  "name": "coursmith",
+  "version": "0.1.0",
+  "description": "Publish AI-written courses to Coursmith from Claude Code, Codex, Cursor, OpenCode or any agent with a shell.",
+  "type": "module",
+  "bin": {
+    "coursmith": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "skill"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "open": "^11.0.4"
+  },
+  "devDependencies": {
+    "@coursmith/course-schema": "0.1.0",
+    "esbuild": "^0.28.2",
+    "@types/node": "^24.0.0",
+    "vitest": "^5.0.5"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "coursmith",
+    "agent-skills",
+    "claude-code",
+    "codex",
+    "cursor",
+    "opencode",
+    "courses",
+    "e-learning"
+  ]
+}
