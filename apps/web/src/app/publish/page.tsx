@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const agents = [
   {
     name: "Claude Code",
-    commands: ["/plugin marketplace add <owner>/<repo>", "/plugin install coursmith@coursmith"],
+    commands: ["/plugin marketplace add Uranio/coursmith", "/plugin install coursmith@coursmith"],
     note: "Adds the skill and the /coursmith:create and /coursmith:status commands.",
   },
   {

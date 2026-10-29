@@ -18,12 +18,12 @@ The plugin has two parts:
 ### Claude Code
 
 ```text
-/plugin marketplace add <owner>/<repo>
+/plugin marketplace add Uranio/coursmith
 /plugin install coursmith@coursmith
 ```
 
 This adds the skill plus two commands: `/coursmith:create [topic]` and `/coursmith:status [folder]`.
-(`<owner>/<repo>` is the GitHub repository that contains this monorepo; its root holds
+(`Uranio/coursmith` is the GitHub repository that contains this monorepo; its root holds
 `.claude-plugin/marketplace.json`.) Alternatively install just the skill with
 `npx -y coursmith install-skill --agent claude`.
 
