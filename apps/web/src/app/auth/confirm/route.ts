@@ -1,5 +1,6 @@
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
+import { publicOrigin } from "@/lib/origin";
 import { safeNext } from "@/lib/auth";
 import { createClient } from "@/lib/supabase/server";
 
@@ -9,7 +10,8 @@ import { createClient } from "@/lib/supabase/server";
  * Unlike the PKCE code flow it also works when the link is opened in another browser.
  */
 export async function GET(request: NextRequest) {
-  const { searchParams, origin } = request.nextUrl;
+  const { searchParams } = request.nextUrl;
+  const origin = publicOrigin(request);
   const tokenHash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
   const next = safeNext(searchParams.get("next"));

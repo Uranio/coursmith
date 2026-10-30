@@ -2,8 +2,8 @@ import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 
-/** Until the portal has its production domain, override with --api-url or COURSMITH_API_URL. */
-export const DEFAULT_API_URL = "http://localhost:3000";
+/** The public portal. Override with --api-url or COURSMITH_API_URL (e.g. http://localhost:3000 in development). */
+export const DEFAULT_API_URL = "https://coursmith.onrender.com";
 
 export function configDir(): string {
   if (process.env.COURSMITH_CONFIG_DIR) return process.env.COURSMITH_CONFIG_DIR;
