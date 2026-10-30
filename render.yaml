@@ -1,0 +1,42 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Secrets are marked `sync: false`: Render asks for them when the Blueprint is applied.
+services:
+  - type: web
+    name: coursmith
+    runtime: node
+    plan: free
+    region: frankfurt
+    branch: main
+    autoDeploy: true
+    buildCommand: >-
+      npm ci &&
+      npm run build --workspace=@coursmith/course-schema &&
+      npm run build --workspace=@coursmith/web
+    startCommand: npm run start --workspace=@coursmith/web
+    healthCheckPath: /api/health
+    envVars:
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: MODERATION_MODEL_SAFETY
+        value: nvidia/nemotron-3.5-super-vl:free
+      - key: MODERATION_MODEL_REVIEW
+        value: nvidia/nemotron-3.5-super-vl:free
+      - key: MODERATION_REASONING_EFFORT
+        value: low
+      - key: MIN_CLI_VERSION
+        value: 0.1.0
+      - key: CRON_SECRET
+        generateValue: true
+      # No cron on the free plan: the server polls its own cron endpoint (src/instrumentation.ts).
+      - key: MODERATION_WORKER_INTERVAL_SECONDS
+        value: "120"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
